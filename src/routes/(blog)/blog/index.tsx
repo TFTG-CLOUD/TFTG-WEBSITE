@@ -1,9 +1,9 @@
-import { component$, useStore, useTask$ } from "@builder.io/qwik";
-import { isServer } from "@builder.io/qwik/build";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { component$, useStore } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import type { Post } from "~/types";
-import { fetchPosts } from "~/utils/posts";
+// import { fetchPosts } from "~/utils/posts";
 import { SITE } from "~/config.mjs";
 
 export default component$(() => {
@@ -11,12 +11,12 @@ export default component$(() => {
     posts: [],
   });
 
-  useTask$(async () => {
-    if (isServer) {
-      const posts = await fetchPosts();
-      store.posts = posts.map((post: Post) => ({ ...post }));
-    }
-  });
+  // useTask$(async () => {
+  //   if (isServer) {
+  //     // const posts = await fetchPosts();
+  //     store.posts = posts.map((post: Post) => ({ ...post }));
+  //   }
+  // });
 
   return (
     <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">

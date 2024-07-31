@@ -14,12 +14,12 @@ export default component$((props: ItemProps) => {
       undefined,
   });
 
-  // eslint-disable-next-line qwik/no-use-visible-task
+  // eslint-ignore
   useVisibleTask$(() => {
     store.theme =
       document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
+        ? "dark"
+        : "light";
   });
 
   return (

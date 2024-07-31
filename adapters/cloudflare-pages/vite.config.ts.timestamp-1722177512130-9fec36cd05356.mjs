@@ -1,0 +1,55 @@
+// adapters/cloudflare-pages/vite.config.ts
+import { cloudflarePagesAdapter } from "file:///Users/quyue/www/efvfortg/node_modules/@builder.io/qwik-city/adapters/cloudflare-pages/vite/index.mjs";
+import { extendConfig } from "file:///Users/quyue/www/efvfortg/node_modules/@builder.io/qwik-city/vite/index.mjs";
+
+// vite.config.ts
+import { defineConfig } from "file:///Users/quyue/www/efvfortg/node_modules/vite/dist/node/index.js";
+import { qwikVite } from "file:///Users/quyue/www/efvfortg/node_modules/@builder.io/qwik/optimizer.mjs";
+import { qwikCity } from "file:///Users/quyue/www/efvfortg/node_modules/@builder.io/qwik-city/vite/index.mjs";
+import tsconfigPaths from "file:///Users/quyue/www/efvfortg/node_modules/vite-tsconfig-paths/dist/index.mjs";
+
+// src/config.mjs
+var SITE = {
+  name: "TFTG",
+  title: "TFTG \u2014 Telegram bot dedicated video cloud transcoding system.",
+  description: "TFTG is a Telegram bot dedicated video cloud transcoding system. Automatically download videos from Telegram bot, transcode them, add watermarks, etc.",
+  origin: "https://qwind.pages.dev",
+  basePathname: "/",
+  trailingSlash: true
+};
+
+// vite.config.ts
+var vite_config_default = defineConfig(() => {
+  return {
+    base: SITE.basePathname,
+    plugins: [
+      qwikCity({
+        trailingSlash: SITE.trailingSlash
+      }),
+      qwikVite(),
+      tsconfigPaths()
+    ],
+    preview: {
+      headers: {
+        "Cache-Control": "public, max-age=600"
+      }
+    }
+  };
+});
+
+// adapters/cloudflare-pages/vite.config.ts
+var vite_config_default2 = extendConfig(vite_config_default, () => {
+  return {
+    build: {
+      ssr: true,
+      rollupOptions: {
+        input: ["src/entry.cloudflare-pages.tsx", "@qwik-city-plan"]
+      }
+    },
+    plugins: [cloudflarePagesAdapter()]
+  };
+});
+export {
+  vite_config_default2 as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiYWRhcHRlcnMvY2xvdWRmbGFyZS1wYWdlcy92aXRlLmNvbmZpZy50cyIsICJ2aXRlLmNvbmZpZy50cyIsICJzcmMvY29uZmlnLm1qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiY29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2Rpcm5hbWUgPSBcIi9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGcvYWRhcHRlcnMvY2xvdWRmbGFyZS1wYWdlc1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9maWxlbmFtZSA9IFwiL1VzZXJzL3F1eXVlL3d3dy9lZnZmb3J0Zy9hZGFwdGVycy9jbG91ZGZsYXJlLXBhZ2VzL3ZpdGUuY29uZmlnLnRzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGcvYWRhcHRlcnMvY2xvdWRmbGFyZS1wYWdlcy92aXRlLmNvbmZpZy50c1wiO2ltcG9ydCB7IGNsb3VkZmxhcmVQYWdlc0FkYXB0ZXIgfSBmcm9tIFwiQGJ1aWxkZXIuaW8vcXdpay1jaXR5L2FkYXB0ZXJzL2Nsb3VkZmxhcmUtcGFnZXMvdml0ZVwiO1xuaW1wb3J0IHsgZXh0ZW5kQ29uZmlnIH0gZnJvbSBcIkBidWlsZGVyLmlvL3F3aWstY2l0eS92aXRlXCI7XG5pbXBvcnQgYmFzZUNvbmZpZyBmcm9tIFwiLi4vLi4vdml0ZS5jb25maWdcIjtcblxuZXhwb3J0IGRlZmF1bHQgZXh0ZW5kQ29uZmlnKGJhc2VDb25maWcsICgpID0+IHtcbiAgcmV0dXJuIHtcbiAgICBidWlsZDoge1xuICAgICAgc3NyOiB0cnVlLFxuICAgICAgcm9sbHVwT3B0aW9uczoge1xuICAgICAgICBpbnB1dDogW1wic3JjL2VudHJ5LmNsb3VkZmxhcmUtcGFnZXMudHN4XCIsIFwiQHF3aWstY2l0eS1wbGFuXCJdLFxuICAgICAgfSxcbiAgICB9LFxuICAgIHBsdWdpbnM6IFtjbG91ZGZsYXJlUGFnZXNBZGFwdGVyKCldLFxuICB9O1xufSk7XG4iLCAiY29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2Rpcm5hbWUgPSBcIi9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGdcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIi9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGcvdml0ZS5jb25maWcudHNcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfaW1wb3J0X21ldGFfdXJsID0gXCJmaWxlOi8vL1VzZXJzL3F1eXVlL3d3dy9lZnZmb3J0Zy92aXRlLmNvbmZpZy50c1wiO2ltcG9ydCB7IGRlZmluZUNvbmZpZyB9IGZyb20gJ3ZpdGUnO1xuaW1wb3J0IHsgcXdpa1ZpdGUgfSBmcm9tICdAYnVpbGRlci5pby9xd2lrL29wdGltaXplcic7XG5pbXBvcnQgeyBxd2lrQ2l0eSB9IGZyb20gJ0BidWlsZGVyLmlvL3F3aWstY2l0eS92aXRlJztcbmltcG9ydCB0c2NvbmZpZ1BhdGhzIGZyb20gJ3ZpdGUtdHNjb25maWctcGF0aHMnO1xuXG5pbXBvcnQgeyBTSVRFIH0gZnJvbSAnLi9zcmMvY29uZmlnLm1qcyc7XG5cbmV4cG9ydCBkZWZhdWx0IGRlZmluZUNvbmZpZygoKSA9PiB7XG4gICAgcmV0dXJuIHtcbiAgICAgICAgYmFzZTogU0lURS5iYXNlUGF0aG5hbWUsXG4gICAgICAgIHBsdWdpbnM6IFtcbiAgICAgICAgICAgIHF3aWtDaXR5KHtcbiAgICAgICAgICAgICAgICB0cmFpbGluZ1NsYXNoOiBTSVRFLnRyYWlsaW5nU2xhc2gsXG4gICAgICAgICAgICB9KSxcbiAgICAgICAgICAgIHF3aWtWaXRlKCksXG4gICAgICAgICAgICB0c2NvbmZpZ1BhdGhzKCksXG4gICAgICAgIF0sXG4gICAgICAgIHByZXZpZXc6IHtcbiAgICAgICAgICAgIGhlYWRlcnM6IHtcbiAgICAgICAgICAgICAgICAnQ2FjaGUtQ29udHJvbCc6ICdwdWJsaWMsIG1heC1hZ2U9NjAwJyxcbiAgICAgICAgICAgIH0sXG4gICAgICAgIH1cbiAgICB9O1xufSk7XG4iLCAiY29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2Rpcm5hbWUgPSBcIi9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGcvc3JjXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCIvVXNlcnMvcXV5dWUvd3d3L2VmdmZvcnRnL3NyYy9jb25maWcubWpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9Vc2Vycy9xdXl1ZS93d3cvZWZ2Zm9ydGcvc3JjL2NvbmZpZy5tanNcIjtleHBvcnQgY29uc3QgU0lURSA9IHtcbiAgbmFtZTogXCJURlRHXCIsXG5cbiAgdGl0bGU6XG4gICAgXCJURlRHIFx1MjAxNCBUZWxlZ3JhbSBib3QgZGVkaWNhdGVkIHZpZGVvIGNsb3VkIHRyYW5zY29kaW5nIHN5c3RlbS5cIixcbiAgZGVzY3JpcHRpb246XG4gICAgXCJURlRHIGlzIGEgVGVsZWdyYW0gYm90IGRlZGljYXRlZCB2aWRlbyBjbG91ZCB0cmFuc2NvZGluZyBzeXN0ZW0uIEF1dG9tYXRpY2FsbHkgZG93bmxvYWQgdmlkZW9zIGZyb20gVGVsZWdyYW0gYm90LCB0cmFuc2NvZGUgdGhlbSwgYWRkIHdhdGVybWFya3MsIGV0Yy5cIixcblxuICBvcmlnaW46IFwiaHR0cHM6Ly9xd2luZC5wYWdlcy5kZXZcIixcbiAgYmFzZVBhdGhuYW1lOiBcIi9cIixcbiAgdHJhaWxpbmdTbGFzaDogdHJ1ZSxcbn07XG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQTJVLFNBQVMsOEJBQThCO0FBQ2xYLFNBQVMsb0JBQW9COzs7QUNEZ08sU0FBUyxvQkFBb0I7QUFDMVIsU0FBUyxnQkFBZ0I7QUFDekIsU0FBUyxnQkFBZ0I7QUFDekIsT0FBTyxtQkFBbUI7OztBQ0g4TyxJQUFNLE9BQU87QUFBQSxFQUNuUixNQUFNO0FBQUEsRUFFTixPQUNFO0FBQUEsRUFDRixhQUNFO0FBQUEsRUFFRixRQUFRO0FBQUEsRUFDUixjQUFjO0FBQUEsRUFDZCxlQUFlO0FBQ2pCOzs7QURKQSxJQUFPLHNCQUFRLGFBQWEsTUFBTTtBQUM5QixTQUFPO0FBQUEsSUFDSCxNQUFNLEtBQUs7QUFBQSxJQUNYLFNBQVM7QUFBQSxNQUNMLFNBQVM7QUFBQSxRQUNMLGVBQWUsS0FBSztBQUFBLE1BQ3hCLENBQUM7QUFBQSxNQUNELFNBQVM7QUFBQSxNQUNULGNBQWM7QUFBQSxJQUNsQjtBQUFBLElBQ0EsU0FBUztBQUFBLE1BQ0wsU0FBUztBQUFBLFFBQ0wsaUJBQWlCO0FBQUEsTUFDckI7QUFBQSxJQUNKO0FBQUEsRUFDSjtBQUNKLENBQUM7OztBRG5CRCxJQUFPQSx1QkFBUSxhQUFhLHFCQUFZLE1BQU07QUFDNUMsU0FBTztBQUFBLElBQ0wsT0FBTztBQUFBLE1BQ0wsS0FBSztBQUFBLE1BQ0wsZUFBZTtBQUFBLFFBQ2IsT0FBTyxDQUFDLGtDQUFrQyxpQkFBaUI7QUFBQSxNQUM3RDtBQUFBLElBQ0Y7QUFBQSxJQUNBLFNBQVMsQ0FBQyx1QkFBdUIsQ0FBQztBQUFBLEVBQ3BDO0FBQ0YsQ0FBQzsiLAogICJuYW1lcyI6IFsidml0ZV9jb25maWdfZGVmYXVsdCJdCn0K

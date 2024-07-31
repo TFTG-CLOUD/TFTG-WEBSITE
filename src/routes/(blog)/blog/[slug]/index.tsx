@@ -1,16 +1,14 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 
-import type { DocumentHead, StaticGenerateHandler } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
 import type { Post } from "~/types";
 
 import md from "markdown-it";
 
-import { fetchPosts, findPostBySlug } from "~/utils/posts";
-
-export const useGetPostBySlug = routeLoader$(async ({ params, status }) => {
-  const post = await findPostBySlug(params.slug);
-
+export const useGetPostBySlug = routeLoader$(async ({ status }) => {
+  // const post = await findPostBySlug(params.slug);
+  const post = null;
   if (!post) {
     return status(404);
   }
@@ -68,13 +66,13 @@ export default component$(() => {
   );
 });
 
-export const onStaticGenerate: StaticGenerateHandler = async () => {
-  const posts = await fetchPosts();
+// export const onStaticGenerate: StaticGenerateHandler = async () => {
+//   const posts = await fetchPosts();
 
-  return {
-    params: posts.map(({ slug }) => ({ slug })),
-  };
-};
+//   return {
+//     params: posts.map(({ slug }) => ({ slug })),
+//   };
+// };
 
 export const head: DocumentHead = ({ resolveValue }) => {
   const post = resolveValue(useGetPostBySlug) as Post;

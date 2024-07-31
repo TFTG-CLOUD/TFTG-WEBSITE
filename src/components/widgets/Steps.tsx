@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
-import Image2 from '~/assets/images/2.webp'
 
 import IconStar from "~/components/icons/IconStar";
 const sideImg =
@@ -82,7 +81,7 @@ export default component$(() => {
           {typeof image !== "undefined" && (
             <Image
               layout="constrained"
-              src={Image2}
+              src='/images/2.webp'
               width={532}
               height={704}
               alt={image.alt}
