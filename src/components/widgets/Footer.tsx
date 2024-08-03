@@ -31,7 +31,7 @@ export default component$(() => {
     {
       title: "Company",
       items: [
-        { title: "Blog", href: "/blogs" },
+        { title: "Blog", href: "/blog" },
       ],
     },
   ];
