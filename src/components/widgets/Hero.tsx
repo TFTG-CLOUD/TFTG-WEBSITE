@@ -26,7 +26,7 @@ export default component$(() => {
                 <div class="flex w-full sm:w-auto">
                   <a
                     class="btn btn-primary sm:mb-0 w-full"
-                    href="https://github.com/onwidget/qwind"
+                    href="https://github.com/TFTG-CLOUD/TFTG"
                     target="_blank"
                     rel="noopener"
                   >
@@ -34,7 +34,7 @@ export default component$(() => {
                   </a>
                 </div>
                 <div class="flex w-full sm:w-auto">
-                  <button class="btn w-full bg-gray-50 dark:bg-transparent">Learn more</button>
+                  <a href="https://t.me/+eeFMPCdU745kN2E1" class="btn w-full bg-gray-50 dark:bg-transparent" target="_blank">Learn more</a>
                 </div>
               </div>
             </div>

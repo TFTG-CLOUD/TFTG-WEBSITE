@@ -11,45 +11,27 @@ export default component$(() => {
     {
       title: "Product",
       items: [
-        { title: "Features", href: "#" },
-        { title: "Security", href: "#" },
-        { title: "Team", href: "#" },
-        { title: "Enterprise", href: "#" },
-        { title: "Customer stories", href: "#" },
-        { title: "Pricing", href: "#" },
-        { title: "Resources", href: "#" },
+        { title: "TFTG", href: "https://tftg.cloud" },
+        { title: "Cloud Transcoding bot", href: "https://t.me/cloud_video_transcoding_bot" },
       ],
     },
     {
       title: "Platform",
       items: [
-        { title: "Developer API", href: "#" },
-        { title: "Partners", href: "#" },
-        { title: "Atom", href: "#" },
-        { title: "Electron", href: "#" },
-        { title: "Qwind Desktop", href: "#" },
+        { title: "Docs", href: "https://github.com/TFTG-CLOUD/TFTG" },
       ],
     },
     {
       title: "Support",
       items: [
-        { title: "Docs", href: "#" },
-        { title: "Community Forum", href: "#" },
-        { title: "Professional Services", href: "#" },
-        { title: "Skills", href: "#" },
-        { title: "Status", href: "#" },
+        { title: "Telegram", href: "https://t.me/tftg_cloud" },
+        { title: "Telegram Group", href: "https://t.me/+eeFMPCdU745kN2E1                                          " },
       ],
     },
     {
       title: "Company",
       items: [
-        { title: "About", href: "#" },
-        { title: "Blog", href: "#" },
-        { title: "Careers", href: "#" },
-        { title: "Press", href: "#" },
-        { title: "Inclusion", href: "#" },
-        { title: "Social Impact", href: "#" },
-        { title: "Shop", href: "#" },
+        { title: "Blog", href: "/blogs" },
       ],
     },
   ];
@@ -61,7 +43,7 @@ export default component$(() => {
     {
       label: "Github",
       icon: IconGithub,
-      href: "https://github.com/onwidget/qwind",
+      href: "https://github.com/TFTG-CLOUD/TFTG",
     },
   ];
 

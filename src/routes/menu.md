@@ -1,11 +1,5 @@
 # Menu
 
-## Pages
-
-- [Services](#)
-- [Porfolio](#)
-- [About us](#)
-- [Terms](/terms)
-- [Privacy](/privacy)
+## [Bot Example](https://t.me/cloud_video_transcoding_bot)
 
 ## [Blog](/blog)

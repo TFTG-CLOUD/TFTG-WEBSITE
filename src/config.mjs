@@ -6,7 +6,7 @@ export const SITE = {
   description:
     "TFTG is a Telegram bot dedicated video cloud transcoding system. Automatically download videos from Telegram bot, transcode them, add watermarks, etc.",
 
-  origin: "https://qwind.pages.dev",
+  origin: "https://tftg.cloud",
   basePathname: "/",
   trailingSlash: true,
 };
