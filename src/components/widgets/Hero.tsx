@@ -10,8 +10,8 @@ export default component$(() => {
         <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
           <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
             <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
-              Perfect cloud transcoding system for <br class="hidden lg:block" />{" "}
-              <span class="hidden lg:inline">transcode videos by</span> <span class="text-[#039de1]">Telegram bot</span> +{" "}
+              Ideal video processing system for <br class="hidden lg:block" />{" "}
+              <span class="hidden lg:inline">cloud-based videos transcoding by</span> <span class="text-[#039de1]">Telegram bot</span> +{" "}
               <span class="sm:whitespace-nowrap text-[#039de1]">FFmpeg</span>
             </h1>
             <div class="max-w-3xl mx-auto lg:max-w-none">
@@ -19,7 +19,7 @@ export default component$(() => {
                 <span class="font-semibold underline decoration-wavy decoration-1 decoration-secondary-600 underline-offset-2">
                   TFTG
                 </span>{" "}
-                is a cloud transcoding system dedicated to Telegram bot. It is used to automatically download videos from Telegram bot, transcode them, add watermarks and marquees, gif image watermarks, etc., and generate preview videos, preview images, screenshots, etc.
+                is a Telegram bot for video processing: cloud-based video transcoding, public link generation, preview video creation, and 4x3 thumbnail generation, etc.
               </p>
 
               <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 lg:justify-start lg:m-0 lg:max-w-7xl">
